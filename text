@@ -1,0 +1,9 @@
+Preprocessing  .i gcc -E
+Compilication  .s  gcc -S
+Assembly       .o  gcc -c
+Linking     gcc -o outputfilename 
+
+a.out
+gcc program.c
+
+
