@@ -1,0 +1,36 @@
+CC = gcc
+CFLAGS = -Wall -c -g -std=c99 
+OFLAGS = -o
+VFLAGS = --tool=memcheck --leak-check=yes --show-reachable=yes
+BIN = bin/
+INCLUDE = -I ../include/ -I ./
+HEADER = ../include/
+SRC = ../src/
+OBJ = obj/
+CUNIT_LIB_DIR = -L/usr/lib/    #location of CUnit library
+CUNIT_INC_DIR = /usr/include/CUnit/
+AUT_INC =  -I $(CUNIT_INC_DIR)
+
+#using shared library
+all: $(BIN)calc_test
+
+
+$(BIN)calc_test: $(OBJ)calc_test.o $(OBJ)calc_testfunctions.o $(OBJ)myFunctions.o
+	$(CC) $(OFLAGS) calc_test $(OBJ)myFunctions.o $(OBJ)calc_test.o $(OBJ)calc_testfunctions.o  $(CUNIT_LIB_DIR) -lcunit
+	mv calc_test $(BIN)
+
+$(OBJ)calc_test.o: calc_test.c 
+	$(CC) $(CFLAGS) calc_test.c $(INCLUDE)   ${AUT_INC}
+	mv calc_test.o $(OBJ)
+
+$(OBJ)calc_testfunctions.o: calc_testfunctions.c 
+	$(CC) $(CFLAGS) calc_testfunctions.c $(INCLUDE) ${AUT_INC}
+	mv calc_testfunctions.o  $(OBJ)
+
+$(OBJ)myFunctions.o: $(SRC)myFunctions.c 
+	$(CC) $(CFLAGS) $(SRC)myFunctions.c $(INCLUDE)  
+	mv myFunctions.o $(OBJ)
+
+clean: 
+	rm -f $(BIN)calc_test
+	rm -f $(OBJ)*.o
