@@ -57,8 +57,8 @@ int main()
   }
 
   printf("Data is %s\n", data);
- 
-  fseek(file_ptr, skipback, SEEK_SET);
+ rewind(file_ptr);
+ // fseek(file_ptr, skipback, SEEK_SET);
   if(-1 == ret_val) // Error check for fseek 
   {
    printf("fseek failed\n");

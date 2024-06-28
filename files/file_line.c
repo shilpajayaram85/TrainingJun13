@@ -14,7 +14,9 @@ int main()
  int fclose_ret = 0; /* Return value from fclose */
  int index = 0; /* for loop index */
  char *temp;
+
  memset(output, 0, MAX); /* Initializing the array */
+
  infile = fopen("sample", "w"); 
  if(NULL == infile) /* Error check for fopen */
  {
@@ -58,6 +60,9 @@ int main()
   temp = fgets(output, MAX, infile);
 	if(temp!=NULL)
 {
+	int len = strlen(output);
+	if(output[len-1] == '\n')
+		output[len-1] = '\0';
   printf("%s\n", output);
 
   printf("%d\n", strlen(output));

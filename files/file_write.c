@@ -12,16 +12,16 @@ int main()
 
    if(fptr == NULL)
    {
-      printf("Error!");   
+      printf("Error in file open!");   
       exit(1);             
    }
 
    printf("Enter num: ");
    scanf("%d",&num);
 
-   ret_val = fprintf(fptr,"%d",num);
+   ret_val = fprintf(fptr,"The number is %d",num);
    if(ret_val <=0)
-   {
+   { ret_val = fclose(fptr);
    	printf("Write Failed\n");
 	return EXIT_FAILURE;
   }
@@ -31,6 +31,7 @@ int main()
    	printf("Closing the file failed\n");
 	return EXIT_FAILURE;
    } 
+//fp = fopen("test.txt", "r");
 
    return 0;
 }

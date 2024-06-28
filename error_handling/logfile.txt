@@ -1,0 +1,9 @@
+[2024-06-28 06:12:19] INFO: This is an info message.
+[2024-06-28 06:12:19] WARNING: This is a warning message.
+[2024-06-28 06:12:19] ERROR: This is an error message.
+[2024-06-28 06:36:34] INFO: This is an info message.
+[2024-06-28 06:36:34] WARNING: This is a warning message.
+[2024-06-28 06:36:34] ERROR: This is an error message.
+[2024-06-28 06:36:56] INFO: This is an info message.
+[2024-06-28 06:36:56] WARNING: This is a warning message.
+[2024-06-28 06:36:56] ERROR: This is an error message.
